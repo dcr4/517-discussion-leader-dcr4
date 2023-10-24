@@ -45,22 +45,33 @@ The current monolithic operating system design leaves much to be desired.  Syste
 ## Pros (3-6 bullets)
 
 - By implementing an exokernel, applications are given more fine-tuned control.  This allows them to further optimize their program.  For example, traditional OS would have to make choices such as optimizing for frequent reads or random writes that every application would be subject to while a exokernel program
+- easier research
+- if, for example, an application gave incorrect arguments to a library function, it is not the kernel's job to check those args because those incorrect args could only affect the application that provided them
 
 ## Cons (3-6 bullets)
 
+- very little commercial success, many problems will likely arise and have to be fixed before an exokernel is viable for a production level product
+- may put more burden on application programmers
+- giving each application the ability to define their own page tables, GUIs, and other very important functions which could give rise to a chaotic system
+
 ### What is your analysis of the proposed?
 
-Summarize and justify what your evluation of the paper is. 
+I think that this paper is very dramatic in some ways. Its full of very powerful statements that are a little inflamatory or exaggerated in nature. However, a feeling of frustration can be felt through the paper. Researchers that have chosen OS as their dedicated field of research want more freedom to conduct research. They feel that this exokernel design is more elegant, performance, and also facilitates improvement of current OS design through easier research. The only question is whether application programmers (who far outnumber kernel developers) actually want this change.
 
 ## Details Comments, Observations, Questions
 
+- What are some similarities and differences between the microkernel and exokernel design?
+- Because application developers make up a much more significant proportion of the developer population than kernel architects, they should be prioritized. Is this design something that application developers actually want? If you were writing an application, how often do you forsee yourself wanting the kind of fine-grained control that the exokernel offers?
+- Is it simply too late to transition to a new OS design? Doing so would require hardware to write drivers for it and application developers to restructure their code to work with LibOS. Is extra performance worth all of this effort?
 
 
-### Notes
+
+
+### My Notes
 
 multiplex = system involving simultaneous transmission of several messages along a single channel of communication
 
-jeremiad = a long mournul complaint or lamentation; a list of woes
+jeremiad = a long mournful complaint or lamentation; a list of woes
 
 application-level software vs user-level
 

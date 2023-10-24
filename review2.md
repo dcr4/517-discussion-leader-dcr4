@@ -25,15 +25,28 @@ An exokernel operating system will perform at a much greater efficiency than a t
 
 ### Method for Proving the Claim
 
-The paper implements their own exokernel and compares and contrats its pros and cons vs what they call a "mature monolithic UNIX operating sytem" named Ultrix.
+The paper implements their own exokernel and compares and contrasts its pros and cons vs what they call a "mature monolithic UNIX operating sytem" named Ultrix.
 
 ### Method for evaluating
 
+The paper provides several benchmarks. The exokernel performanced worse on prot100 and uprot100 but perfored much better (even up to an order of magnitude more efficiently) on the appel2 operation (which protects 100 pages of physical memory). Also they offer one example where the chose to implement an inverted page table. In this case, they were able to get a 2x speedup on the "dirty" kernel call, a 37% improvement on the appel1 kernel call, and 17% improvement on the appel2 kernel call.
+
 ### Contributions: what we take away
+
+Is it possible to securely multiplex available hardware among multiple applications. Application programmers are provided with LibOS, a library operating system that can be used as is, changed, or even extended to better tailor to the needs of that specific application. By separating management from protection using secure bindings, hardware mechanisms, software caches, and downloading code the kernel is able to export a secure a low-level interface to the applications. The Aegis and ExOS prototypes that are implemented proved that exokernels are very performance and traditional OS abstractions can be implemented at an application level. The authors conclude that the exokernel architecture is a viable structure for high-performance, extensible operating systems.
 
 ## Pros (3-6 bullets)
 
+- excellent performance, the number of kernel crossings in reduced
+- greater elegance of design
+- security is not sacrificed for performance.
+- small, lean kernel
+
 ## Cons (3-6 bullets)
+
+- not many benchmarks are provided.
+- the system is not very mature, so as with any new idea/system, many bugs/vulnerabilities are sure to emerge.
+- most (if not all) exokernels that were implemented were research projects
 
 ### What is your analysis of the proposed?
 
@@ -45,8 +58,16 @@ It seems that this type of kernel would have uses in systems where speed and eff
 
 ## Details Comments, Observations, Questions
 
+- Exokernels are often associated with low-level resource management. Can you draw parallels between the principles of exokernels and concepts in virtualization, such as hypervisors and containers?
+- How does the idea of exokernels connect with emerging trends in computer science, such as cloud computing and edge computing? Can you think of scenarios where exokernel concepts could be beneficial in these contexts?
 
-### Notes
+
+
+
+
+
+
+### My Notes
 Exokernel: An Operating System Architecture for Application level Resource Management
 
 “Hardcoding the implementation of (OS) abstractions is inappropriate for three main reasons: it denies applications the advantages of domain-specific optimizations, it discourages changes to the implementations of existing applications, and restricts the flexibility of application builders.”
